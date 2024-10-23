@@ -1,18 +1,26 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+Maven AGI App Template
 
 ## Getting Started
 
-First, run the development server:
+First, install the dependencies:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+pnpm install
 ```
+
+Run the development server:
+
+```bash
+pnpm dev
+```
+
+Git pre-commit hooks:
+
+```bash
+pnpm test
+pnpm format
+```
+
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
