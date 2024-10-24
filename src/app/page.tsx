@@ -12,7 +12,8 @@ export default function Home() {
           Answer 93% of customer support tickets autonomously
         </h1>
         <p className="text-xl mb-8 max-w-2xl">
-          Transform your customer experience with Maven's Generative AI without the complex setup.
+          Transform your customer experience with Maven&apos;s Generative AI without the complex
+          setup.
         </p>
         <div className="flex flex-col sm:flex-row gap-4">
           <a
