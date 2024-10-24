@@ -1,4 +1,4 @@
-Maven AGI App Template
+#Maven AGI App Template
 
 ## Getting Started
 
@@ -20,7 +20,6 @@ Git pre-commit hooks:
 pnpm test
 pnpm format
 ```
-
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
