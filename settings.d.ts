@@ -1,7 +1,5 @@
 declare global {
-    interface AppSettings {
-    }
-  }
-  
-  export {};
-  
+  interface AppSettings {}
+}
+
+export {};

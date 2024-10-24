@@ -1,4 +1,4 @@
-import {MavenAGIClient} from "mavenagi";
+import { MavenAGIClient } from 'mavenagi';
 
 export default {
   async preInstall({
@@ -30,17 +30,21 @@ export default {
     // Setup actions, users, knowledge, etc
   },
 
-  async executeAction({actionId, parameters}: {
-    actionId: string; 
-    parameters: Record<string, any>}) {
+  async executeAction({
+    actionId,
+    parameters,
+  }: {
+    actionId: string;
+    parameters: Record<string, any>;
+  }) {
     // Execute action logic here
   },
-   
+
   async knowledgeBaseRefreshed({
     organizationId,
     agentId,
     knowledgeBaseId,
-    settings
+    settings,
   }: {
     organizationId: string;
     agentId: string;
@@ -52,6 +56,6 @@ export default {
       agentId: agentId,
     });
 
-    // Setup actions, users, knowledge, etc   
+    // Setup actions, users, knowledge, etc
   },
 };
