@@ -1,4 +1,15 @@
 {
   "extends": ["next/core-web-vitals", "next/typescript"],
-  "ignorePatterns": ["**/mavenagi-cgi/**/*"]
+  "ignorePatterns": ["**/mavenagi-cgi/**/*"],
+  "rules": {
+    "import/no-anonymous-default-export": "off"
+  },
+  "overrides": [
+    {
+      "files": ["**/*.test.*"],
+      "rules": {
+        "@next/next/no-img-element": "off"
+      }
+    }
+  ]
 }
