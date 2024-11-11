@@ -4,7 +4,7 @@ export default function Home() {
   return (
     <div className="flex min-h-screen flex-col bg-[#F0F4F8] font-sans text-[#1A202C]">
       <header className="flex justify-center p-6">
-        <Image src="/logo.png" alt="Maven logo" width={120} height={40} priority />
+        <Image src="/images/logo.png" alt="Maven logo" width={120} height={40} priority />
       </header>
 
       <main className="flex grow flex-col items-center justify-center p-8 text-center">
