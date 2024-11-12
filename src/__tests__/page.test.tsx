@@ -23,15 +23,15 @@ describe('Home component', () => {
 
   it('renders the "Get Started" button', () => {
     render(<Home />);
-    const getStartedButton = screen.getByRole('link', { name: /get started/i });
+    const getStartedButton = screen.getByRole('link', { name: /app studio/i });
     expect(getStartedButton).toBeInTheDocument();
-    expect(getStartedButton).toHaveAttribute('href', 'https://mavenagi.com');
+    expect(getStartedButton).toHaveAttribute('href', 'https://developers.mavenagi.com');
   });
 
   it('renders the "Learn More" button', () => {
     render(<Home />);
-    const learnMoreButton = screen.getByRole('link', { name: /learn more/i });
+    const learnMoreButton = screen.getByRole('link', { name: /documentation/i });
     expect(learnMoreButton).toBeInTheDocument();
-    expect(learnMoreButton).toHaveAttribute('href', 'https://mavenagi.com');
+    expect(learnMoreButton).toHaveAttribute('href', 'https://docs.mavenagi.com');
   });
 });
