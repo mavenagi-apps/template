@@ -1,5 +1,7 @@
 ## App Template for Maven AGI
 
+[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/mavenagi-apps/template?template=false)
+
 ### About
 
 This template shows how to create and install a Maven AGI App, which adds additional capabilities to an agent running on Maven AGI. There are several types, including complete interfaces, knowledge adapters, user personalization adapters and event listeners. See our documentation for more info.

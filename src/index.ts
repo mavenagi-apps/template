@@ -16,10 +16,7 @@ export default {
     new MavenAGIClient({
       organizationId: organizationId,
       agentId: agentId,
-  
-    
     });
-
 
     // Setup actions, users, knowledge, etc
   },
