@@ -8,7 +8,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "lint:format": "prettier --write .",
+    "lint:format": "prettier --config .prettierrc 'src/**/*.ts' --write",
     "prepare": "husky",
     "test": "vitest run",
     "test:watch": "vitest",
@@ -18,7 +18,8 @@
     "mavenagi": "0.0.0-alpha.22",
     "next": "^15",
     "react": "^18",
-    "react-dom": "^18"
+    "react-dom": "^18",
+    "react-markdown": "^9"
   },
   "devDependencies": {
     "@tailwindcss/typography": "^0.5",

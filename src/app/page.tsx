@@ -1,4 +1,8 @@
+import { promises as fs } from 'fs';
 import Image from 'next/image';
+import Markdown from 'react-markdown';
+
+const file = await fs.readFile(process.cwd() + '/README.md', 'utf8');
 
 export default function Home() {
   return (
@@ -17,18 +21,21 @@ export default function Home() {
         </p>
         <div className="flex flex-col gap-4 sm:flex-row">
           <a
-            href="https://mavenagi.com"
+            href="https://developers.mavenagi.com"
             className="rounded-full bg-[#3B82F6] px-6 py-3 font-bold text-white transition-colors hover:bg-[#2563EB]"
           >
-            Get Started
+            App Studio
           </a>
           <a
-            href="https://mavenagi.com"
+            href="https://docs.mavenagi.com"
             className="rounded-full border border-[#3B82F6] px-6 py-3 font-bold text-[#3B82F6] transition-colors hover:bg-[#3B82F6] hover:text-white"
           >
-            Learn More
+            Documentation
           </a>
         </div>
+        <article className="prose pt-24 text-left">
+          <Markdown>{file}</Markdown>
+        </article>
       </main>
 
       <footer className="p-6 text-center text-sm text-[#4A5568]">
