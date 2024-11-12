@@ -1,26 +1,4 @@
 {
-	"name": "template",
-	"features": {
-		"ghcr.io/devcontainers/features/git:1": {
-            "version": "latest",
-            "ppa": "false"
-        }
-	},
-
-	"customizations": {
-		"vscode": {
-			"extensions": [
-                "esbenp.prettier-vscode",
-                "github.vscode-github-actions",
-                "github.codespaces",
-                "ms-vscode-remote.remote-containers"            
-			]
-		}
-	},
-
-	"forwardPorts": [3000],
-
-	"postCreateCommand": "pnpm install",
-
-	"remoteUser": "node"
+  "name": "template",
+  "postCreateCommand": "pnpm install"
 }
