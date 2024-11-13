@@ -8,6 +8,9 @@ importers:
 
   .:
     dependencies:
+      git-cz:
+        specifier: ^4.9.0
+        version: 4.9.0
       mavenagi:
         specifier: 0.0.0-alpha.22
         version: 0.0.0-alpha.22
@@ -25,10 +28,10 @@ importers:
         version: 9.0.1(@types/react@18.3.12)(react@18.3.1)
     devDependencies:
       '@commitlint/cli':
-        specifier: ^19.5.0
+        specifier: ^19
         version: 19.5.0(@types/node@22.9.0)(typescript@5.6.3)
       '@commitlint/config-conventional':
-        specifier: ^19.5.0
+        specifier: ^19
         version: 19.5.0
       '@tailwindcss/typography':
         specifier: ^0.5
@@ -61,7 +64,7 @@ importers:
         specifier: ^2
         version: 2.1.4(vitest@2.1.4(@types/node@22.9.0)(jsdom@25.0.1))
       commitizen:
-        specifier: ^4.3.1
+        specifier: ^4
         version: 4.3.1(@types/node@22.9.0)(typescript@5.6.3)
       eslint:
         specifier: ^9
@@ -85,7 +88,7 @@ importers:
         specifier: ^25
         version: 25.0.1
       lint-staged:
-        specifier: ^15.2.10
+        specifier: ^15
         version: 15.2.10
       postcss:
         specifier: ^8
@@ -1881,6 +1884,10 @@ packages:
 
   get-tsconfig@4.8.1:
     resolution: {integrity: sha512-k9PN+cFBmaLWtVz29SkUoqU5O0slLuHJXt/2P+tMVFT+phsSGXGkp9t3rQIqdz0e+06EHNGs3oM6ZX1s2zHxRg==}
+
+  git-cz@4.9.0:
+    resolution: {integrity: sha512-cSRL8IIOXU7UFLdbziCYqg8f8InwLwqHezkiRHNSph7oZqGv0togId1kMTfKil6gzK0VaSXeVBb4oDl0fQCHiw==}
+    hasBin: true
 
   git-raw-commits@4.0.0:
     resolution: {integrity: sha512-ICsMM1Wk8xSGMowkOmPrzo2Fgmfo4bMHLNX6ytHjajRJUqvHOw/TFapQ+QG75c3X/tTDDhOSRPGC52dDbNM8FQ==}
@@ -5576,6 +5583,8 @@ snapshots:
   get-tsconfig@4.8.1:
     dependencies:
       resolve-pkg-maps: 1.0.0
+
+  git-cz@4.9.0: {}
 
   git-raw-commits@4.0.0:
     dependencies:
