@@ -30,7 +30,7 @@ describe('Home component', () => {
 
   it('renders the "Learn More" button', () => {
     render(<Home />);
-    const learnMoreButton = screen.getByRole('link', { name: /documentation/i });
+    const learnMoreButton = screen.getAllByRole('link', { name: /Documentation/i })[0];
     expect(learnMoreButton).toBeInTheDocument();
     expect(learnMoreButton).toHaveAttribute('href', 'https://docs.mavenagi.com');
   });
