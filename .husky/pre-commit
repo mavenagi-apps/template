@@ -1,2 +1,3 @@
 pnpm test
 pnpm lint:format
+pnpm lint:format:package
