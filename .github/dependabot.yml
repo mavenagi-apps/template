@@ -1,0 +1,16 @@
+version: 2
+updates:
+  - package-ecosystem: 'npm'
+    directory: '/'
+    schedule:
+      interval: 'daily'
+    labels:
+      - 'npm'
+      - 'dependencies'
+    prefix: 'chore'
+    include: 'scope'
+    scope: 'deps'
+    ignore:
+      - dependency-name: 'node'
+        versions:
+          - '< 14'
