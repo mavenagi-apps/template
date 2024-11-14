@@ -33,7 +33,7 @@ Run the development server:
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 Use `curl -X POST http://localhost:3000/api` to exercise the api route.
 
-### Commiting
+### Committing
 
 Maven uses [conventional commits](https://www.conventionalcommits.org/en/v1.0.0/#summary) to drive [semantic versioning](https://semver.org/). Commits are linted and `git-cz` is available to help make quality commit messages. To run:
 
