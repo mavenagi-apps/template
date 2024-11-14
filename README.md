@@ -4,7 +4,7 @@
 
 ### About
 
-This template shows how to create and install a Maven AGI App, which adds additional capabilities to an agent running on Maven AGI. There are several types, including complete interfaces, knowledge adapters, user personalization adapters and event listeners. See our documentation for more info.
+This template is a boilerplate App for Maven AGI, which allows developers to add additional capabilities to an agent running on Maven AGI. There are several types of available APIs, including the `ask` API for making conversational requests, APIs for ingesting knowledge and user data for personalization, plus event listeners for important agent events. See our [developer documentation](https://developers.mavenagi.com) for more info.
 
 ### Capabilities
 
@@ -18,7 +18,7 @@ All capabililties are installed into Maven AGI on app installation in `src/index
 
 ### Getting Started
 
-First, install the dependencies:
+First, install the project dependencies:
 
 ```bash
 % pnpm install
@@ -30,13 +30,18 @@ Run the development server:
 % pnpm dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-Use `curl -X POST http://localhost:3000/api` to exercise the api route.
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result. Use `curl -X POST http://localhost:3000/api` to exercise the api route.
 
 ### Committing
 
-Maven uses [conventional commits](https://www.conventionalcommits.org/en/v1.0.0/#summary) to drive [semantic versioning](https://semver.org/). Commits are linted and `git-cz` is available to help make quality commit messages. To run:
+This App template uses [conventional commits](https://www.conventionalcommits.org/en/v1.0.0/#summary) to drive [semantic versioning](https://semver.org/). Commits are linted and `git-cz` is installed to help create quality commit messages. To run:
 
 ```bash
 % pnpm cz
 ```
+
+### Installing
+
+For instructions on installing on an agent, see our [product documentation](https://docs.mavenagi.com)
+
+### Using

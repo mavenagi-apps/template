@@ -7,9 +7,9 @@ updates:
     labels:
       - 'npm'
       - 'dependencies'
-    prefix: 'chore'
-    include: 'scope'
-    scope: 'deps'
+    commit-message:
+      prefix: 'chore'
+      include: 'scope'
     ignore:
       - dependency-name: 'node'
         versions:
