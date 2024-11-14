@@ -8,8 +8,7 @@ updates:
       - 'npm'
       - 'dependencies'
     prefix: 'chore'
-    include: 'scope'
-    scope: 'deps'
+      include: 'scope'
     ignore:
       - dependency-name: 'node'
         versions:
