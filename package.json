@@ -31,6 +31,7 @@
   "devDependencies": {
     "@commitlint/cli": "^19",
     "@commitlint/config-conventional": "^19",
+    "@mavenagi/neve-recorder": "^0",
     "@tailwindcss/typography": "^0.5",
     "@testing-library/dom": "^10",
     "@testing-library/jest-dom": "^6",
@@ -51,6 +52,7 @@
     "husky": "^9",
     "jsdom": "^25",
     "lint-staged": "^15",
+    "msw": "^2",
     "postcss": "^8",
     "prettier": "^3",
     "prettier-package-json": "^2",
