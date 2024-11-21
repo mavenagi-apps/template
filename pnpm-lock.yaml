@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       mavenagi:
-        specifier: 0.0.0-alpha.22
-        version: 0.0.0-alpha.22
+        specifier: 1.0.0
+        version: 1.0.0
       next:
         specifier: ^15
         version: 15.0.3(@babel/core@7.26.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -2555,8 +2555,8 @@ packages:
     resolution: {integrity: sha512-hXdUTZYIVOt1Ex//jAQi+wTZZpUpwBj/0QsOzqegb3rGMMeJiSEu5xLHnYfBrRV4RH2+OCSOO95Is/7x1WJ4bw==}
     engines: {node: '>=10'}
 
-  mavenagi@0.0.0-alpha.22:
-    resolution: {integrity: sha512-B+cdv0v8NcUZMMlqdf7E3QhHpFuWBlGPe7UI/QlibGeWDjqIPK33HouXt4EE78m9egFTUn7cosuHOA0CHHRAag==}
+  mavenagi@1.0.0:
+    resolution: {integrity: sha512-fz1mYCae7X30jl5qX3z7147v8qciKCVV5MKIBx/1nehIkEyFZoW2VrR2U1e+4QkQEO3IPpqgks27MiXbJlkWJA==}
 
   mdast-util-from-markdown@2.0.2:
     resolution: {integrity: sha512-uZhTV/8NBuw0WHkPTrCqDOl0zVe1BIng5ZtHoDk49ME1qqcjYmmLmOf0gELgcRMxN4w2iuIeVso5/6QymSrgmA==}
@@ -6449,7 +6449,7 @@ snapshots:
     dependencies:
       semver: 7.6.3
 
-  mavenagi@0.0.0-alpha.22:
+  mavenagi@1.0.0:
     dependencies:
       form-data: 4.0.1
       formdata-node: 6.0.3
