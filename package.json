@@ -59,5 +59,9 @@
     "tailwindcss-animate": "^1",
     "typescript": "^5",
     "vitest": "^2"
+  },
+  "lint-staged": {
+    "src/**/*.ts": "prettier --config .prettierrc --write",
+    "./package.json": "prettier-package-json --write"
   }
 }
