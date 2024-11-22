@@ -46,6 +46,8 @@ This App template uses [conventional commits](https://www.conventionalcommits.or
 2. `git fetch all`
 3. `git merge template/main --allow-unrelated-histories`
 
+Note that you will most likely have merge conflicts for all the existing template files that you have touched; resolving those boils down to always keeping your current changes and ignore incoming changes.
+
 ### Installing
 
 For instructions on installing on an agent, see our [product documentation](https://docs.mavenagi.com)
