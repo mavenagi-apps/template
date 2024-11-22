@@ -48,8 +48,9 @@ export default {
     });
 
     const title = 'United States Constitution';
-    const content = '123';
-    const slug = '123';
+    const slug = 'us-constitution';
+    const response = await fetch('/constitution.md');
+    const content = await response.text();
 
     await upsertSampleKnowledge(client, { title, content, slug });
   },
