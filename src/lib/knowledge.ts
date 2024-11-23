@@ -1,7 +1,7 @@
 import { MavenAGI, MavenAGIClient } from 'mavenagi';
 
-const SAMPLE_KNOWLEDGE_NAME = '';
-const SAMPLE_KNOWLEDGE_ID = '';
+const SAMPLE_KNOWLEDGEBASE_NAME = 'sample-knowledge';
+const SAMPLE_KNOWLEDGE_ID = 'sample-knowledge';
 
 export const upsertSampleKnowledge = async (
   client: MavenAGIClient,
@@ -17,7 +17,7 @@ export const upsertSampleKnowledge = async (
 ) => {
   try {
     await client.knowledge.createOrUpdateKnowledgeBase({
-      name: SAMPLE_KNOWLEDGE_NAME,
+      name: SAMPLE_KNOWLEDGEBASE_NAME,
       type: MavenAGI.KnowledgeBaseType.Api,
       knowledgeBaseId: { referenceId: SAMPLE_KNOWLEDGE_ID },
     });

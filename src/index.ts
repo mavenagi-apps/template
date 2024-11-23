@@ -4,10 +4,13 @@ import { EntityId } from 'mavenagi/api';
 import {
   SAMPLE_ACTION_ID,
   handleSampleTrigger,
+  installSampleAction,
   refreshSampleKnowledge,
   runSampleAction,
   upsertSampleKnowledge,
 } from './lib';
+
+const HOST = 'http://localhost:3000';
 
 export default {
   /**
@@ -42,17 +45,24 @@ export default {
       agentId: agentId,
     });
 
-    console.info(`Installed '${SAMPLE_ACTION_ID}' action`, {
+    await installSampleAction(client);
+
+    console.info(`Installed sample action`, {
       organizationId,
       agentId,
     });
 
     const title = 'United States Constitution';
     const slug = 'us-constitution';
-    const response = await fetch('/constitution.md');
+    const response = await fetch(`${HOST}/constitution.md`);
     const content = await response.text();
 
     await upsertSampleKnowledge(client, { title, content, slug });
+
+    console.info(`Created sample knowledge`, {
+      organizationId,
+      agentId,
+    });
   },
 
   /**
@@ -76,10 +86,15 @@ export default {
 
     const title = 'United States Constitution';
     const slug = 'us-constitution';
-    const response = await fetch('/constitution.md');
+    const response = await fetch(`${HOST}/constitution.md`);
     const content = await response.text();
 
     await refreshSampleKnowledge(client, { title, content, slug });
+
+    console.info(`Updated sample knowledge`, {
+      organizationId,
+      agentId,
+    });
   },
 
   /**
@@ -103,6 +118,11 @@ export default {
     });
 
     await handleSampleTrigger(client, { conversations });
+
+    console.info(`Handled sample trigger`, {
+      organizationId,
+      agentId,
+    });
   },
 
   /**
@@ -121,5 +141,7 @@ export default {
       const content = await runSampleAction({ parameters });
       return content;
     }
+
+    console.info(`Executed sample action`);
   },
 };
