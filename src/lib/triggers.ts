@@ -12,7 +12,7 @@ export const handleSampleTrigger = async (
   }
 ) => {
   for (const conversation of conversations) {
-    let response = await client.conversation.get(conversation.referenceId, {
+    const response = await client.conversation.get(conversation.referenceId, {
       appId: conversation.appId,
     });
     console.log('conversation updated:', JSON.stringify(response));
