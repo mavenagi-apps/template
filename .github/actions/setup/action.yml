@@ -21,7 +21,7 @@ runs:
 
     - name: Setup pnpm
       shell: bash
-      run: pnpm setup
+      run: SHELL=bash pnpm setup
 
     - name: Install dependencies using pnpm
       shell: bash
