@@ -16,12 +16,9 @@ runs:
         node-version-file: ${{ inputs.node-version-file }}
 
     - name: Install pnpm
-      shell: bash
-      run: npm install -g pnpm
-
-    - name: Setup pnpm
-      shell: bash
-      run: PNPM_HOME=$HOME SHELL=bash pnpm setup
+      uses: pnpm/action-setup@v4
+      with:
+        version: 9
 
     - name: Install dependencies using pnpm
       shell: bash
