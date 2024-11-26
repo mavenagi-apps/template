@@ -13,7 +13,9 @@ runs:
     - name: Set up pnpm
       uses: pnpm/action-setup@v4
       with:
-        dest: ~/pnpm
+        run_install: false
+        standalone: true
+        dest: ~/setup-pnpm
 
     - name: Find pnpm
       shell: bash
@@ -24,7 +26,7 @@ runs:
       with:
         node-version-file: ${{ inputs.node-version-file }}
         cache: 'pnpm'
-        # cache-dependency-path: pnpm-lock.yaml
+        cache-dependency-path: pnpm-lock.yaml
 
     - name: Install dependencies using pnpm
       shell: bash
