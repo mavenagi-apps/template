@@ -39,4 +39,4 @@ runs:
       id: cache
       with:
         path: ~/pnpm
-        # key: pnpm
+        key: pnpm
