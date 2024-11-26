@@ -1,4 +1,4 @@
-# App Template for [Maven AGI](https://developers.mavenagi.com/) &middot; [![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/mavenagi-apps/template/blob/main/LICENSE) ![badge](https://gist.githubusercontent.com/mwflaher/46d409f23d2b17672adfa2dfe9b6b1f0/raw/badge.svg)
+## App Template for [Maven AGI](https://developers.mavenagi.com/) &middot; [![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/mavenagi-apps/template/blob/main/LICENSE) ![badge](https://gist.githubusercontent.com/mwflaher/46d409f23d2b17672adfa2dfe9b6b1f0/raw/badge.svg)
 
 [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/mavenagi-apps/template?template=false)
 
