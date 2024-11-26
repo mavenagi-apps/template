@@ -36,9 +36,9 @@ runs:
       shell: bash
       run: pnpm install --global vercel@latest
 
-    - name: Cache
-      uses: actions/cache/save@v4
-      id: cache
-      with:
-        path: ~/setup-pnpm
-        key: pnpm
+    # - name: Cache
+    #   uses: actions/cache/save@v4
+    #   id: cache
+    # with:
+    #   path: ~/setup-pnpm
+    #   key: pnpm
