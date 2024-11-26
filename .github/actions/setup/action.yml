@@ -14,6 +14,8 @@ runs:
       uses: actions/setup-node@v3
       with:
         node-version-file: ${{ inputs.node-version-file }}
+        cache: 'pnpm'
+        cache-dependency-path: pnpm-lock.yaml
 
     - name: Install pnpm
       uses: pnpm/action-setup@v4
