@@ -1,0 +1,42 @@
+[
+    {
+        "title": "1st Amendment",
+        "primary_drafter": "James Madison",
+        "proposing_body": "1st United States Congress",
+        "date_proposed": "1789",
+        "date_ratified": "1791",
+        "content": "Congress shall make no law respecting an establishment of religion, or prohibiting the free exercise thereof; or abridging the freedom of speech, or of the press; or the right of the people peaceably to assemble, and to petition the Government for a redress of grievances."
+    },
+    {
+        "title": "2nd Amendment",
+        "primary_drafter": "James Madison",
+        "proposing_body": "1st United States Congress",
+        "date_proposed": "1789",
+        "date_ratified": "1791",
+        "content": "A well regulated Militia, being necessary to the security of a free State, the right of the people to keep and bear Arms, shall not be infringed."
+    },
+    {
+        "title": "3rd Amendment",
+        "primary_drafter": "James Madison",
+        "proposing_body": "1st United States Congress",
+        "date_proposed": "1789",
+        "date_ratified": "1791",
+        "content": "No Soldier shall, in time of peace be quartered in any house, without the consent of the Owner, nor in time of war, but in a manner to be prescribed by law."
+    },
+    {
+        "title": "4th Amendment",
+        "primary_drafter": "James Madison",
+        "proposing_body": "1st United States Congress",
+        "date_proposed": "1789",
+        "date_ratified": "1791",
+        "content": "The right of the people to be secure in their persons, houses, papers, and effects, against unreasonable searches and seizures, shall not be violated, and no Warrants shall issue, but upon probable cause, supported by Oath or affirmation, and particularly describing the place to be searched, and the persons or things to be seized."
+    },
+    {
+        "title": "27th Amendment",
+        "primary_drafter": "James Madison",
+        "proposing_body": "Congress",
+        "date_proposed": "1789",
+        "date_ratified": "1992",
+        "content": "No law, varying the compensation for the services of the Senators and Representatives, shall take effect, until an election of Representatives shall have intervened."
+    }
+]

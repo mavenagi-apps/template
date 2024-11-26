@@ -1,0 +1,29 @@
+name: setup
+description: Shared setup for Node.js with pnpm
+
+inputs:
+  node-version-file:
+    description: Path to .nvmrc file
+    required: true
+
+runs:
+  using: 'composite'
+
+  steps:
+    - name: Set up Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version-file: ${{ inputs.node-version-file }}
+
+    - name: Install pnpm
+      uses: pnpm/action-setup@v4
+      with:
+        version: 9
+
+    - name: Install dependencies using pnpm
+      shell: bash
+      run: pnpm install
+
+    - name: Install Vercel CLI
+      shell: bash
+      run: pnpm install --global vercel@latest

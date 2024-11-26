@@ -1,0 +1,40 @@
+name: test
+
+on:
+  push:
+    branches:
+      - develop
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: ./.github/actions/setup
+        with:
+          node-version-file: '.nvmrc'
+
+      - name: Lint project
+        run: pnpm run lint
+
+      # - name: Test project
+      #   run: pnpm run test:coverage
+
+      - name: Coverage
+        run: |
+          SUMMARY="$(npm run test:coverage | tail -2 | head -1)"
+          TOKENS=($SUMMARY)
+          echo "COVERAGE=$(echo ${TOKENS[2]})" >> $GITHUB_ENV
+
+      - name: Create badge
+        uses: schneegans/dynamic-badges-action@v1.7.0
+        with:
+          auth: ${{ secrets.GIST_SECRET }}
+          gistID: 46d409f23d2b17672adfa2dfe9b6b1f0
+          filename: coverage.svg
+          label: coverage
+          message: ${{ env.COVERAGE }}
+          color: lightgrey
