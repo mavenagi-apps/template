@@ -1,7 +1,7 @@
 import { render, screen } from '@testing-library/react';
 import { describe, expect, it, vi } from 'vitest';
 
-import Home from '../app/page';
+import Home from '../../app/page';
 
 // Mocking next/image since it's not available in the test environment
 vi.mock('next/image', () => ({

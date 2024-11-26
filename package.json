@@ -12,9 +12,11 @@
     "lint:format:package": "prettier-package-json --write ./package.json",
     "prepare": "husky",
     "start": "next start",
-    "test": "vitest run",
-    "test:coverage": "vitest run --coverage.enabled --coverage.reporter='text-summary'",
-    "test:watch": "vitest"
+    "test": "pnpm test:vitest && pnpm test:playwright",
+    "test:coverage": "pnpm test:coverage:vitest",
+    "test:playwright": "playwright test",
+    "test:vitest": "vitest run",
+    "test:vitest:coverage": "vitest run --coverage.enabled --coverage.reporter='text-summary'"
   },
   "config": {
     "commitizen": {
@@ -32,6 +34,7 @@
     "@commitlint/cli": "^19.6.0",
     "@commitlint/config-conventional": "^19.6.0",
     "@mavenagi/neve-recorder": "^0.1.1",
+    "@playwright/test": "^1.49.0",
     "@tailwindcss/typography": "^0.5.15",
     "@testing-library/dom": "^10.4.0",
     "@testing-library/jest-dom": "^6.6.3",
