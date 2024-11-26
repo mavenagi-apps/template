@@ -6,7 +6,7 @@ on:
       - develop
 
 jobs:
-  build:
+  setup:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
@@ -17,13 +17,41 @@ jobs:
         with:
           node-version-file: '.nvmrc'
 
+  lint:
+    runs-on: ubuntu-latest
+    needs:
+      - setup
+    steps:
       - name: Lint project
         run: pnpm run lint
 
-      # - name: Test project
-      #   run: pnpm run test:coverage
+  vitest:
+    runs-on: ubuntu-latest
+    needs:
+      - setup
+      - lint
+    steps:
+      - name: Run vitest
+        run: pnpm run test:vitest
 
-      - name: Coverage
+  # playwright:
+  #   runs-on: ubuntu-latest
+  #   needs:
+  #     - setup
+  #     - lint
+  #   steps:
+  #     - name: Run playwright
+  #       run: pnpm run test:playwright
+
+  coverage:
+    runs-on: ubuntu-latest
+    needs:
+      - setup
+      - lint
+      - vitest
+      # - playwright
+    steps:
+      - name: Gather test coverage
         run: |
           SUMMARY="$(npm run test:coverage | tail -2 | head -1)"
           TOKENS=($SUMMARY)
