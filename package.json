@@ -65,8 +65,13 @@
     "typescript": "^5.6.3",
     "vitest": "^2.1.5"
   },
+  "engines": {
+    "node": "23.3.0",
+    "pnpm": "9.2.0"
+  },
   "lint-staged": {
     "src/**/*.ts": "prettier --config .prettierrc --write",
     "./package.json": "prettier-package-json --write"
-  }
+  },
+  "packageManager": "pnpm@9.2.0"
 }

@@ -10,17 +10,21 @@ runs:
   using: 'composite'
 
   steps:
+    - name: Set up pnpm
+      uses: pnpm/action-setup@v4
+      with:
+        version: 9
+
+    - name: Find pnpm
+      shell: bash
+      run: which pnpm
+
     - name: Set up Node.js
       uses: actions/setup-node@v3
       with:
         node-version-file: ${{ inputs.node-version-file }}
         cache: 'pnpm'
-        cache-dependency-path: pnpm-lock.yaml
-
-    - name: Set up pnpm
-      uses: actions/setup-pnpm@v2
-      with:
-        version: 9
+        # cache-dependency-path: pnpm-lock.yaml
 
     - name: Install dependencies using pnpm
       shell: bash
