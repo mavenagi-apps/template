@@ -13,7 +13,7 @@ runs:
     - name: Set up pnpm
       uses: pnpm/action-setup@v4
       with:
-        version: 9.2.0
+        dest: ~/pnpm
 
     - name: Find pnpm
       shell: bash
@@ -33,3 +33,10 @@ runs:
     - name: Install Vercel CLI
       shell: bash
       run: pnpm install --global vercel@latest
+
+    - name: Cache
+      uses: actions/cache/save@v4
+      id: cache
+      with:
+        path: ~/pnpm
+        # key: pnpm
