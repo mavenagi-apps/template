@@ -24,7 +24,7 @@ jobs:
         run: pnpm run test:coverage
 
       - name: Create badge
-        uses: schneegans/dynamic-badges-action@v1
+        uses: schneegans/dynamic-badges-action
         with:
           auth: ${{ secrets.GIST_SECRET }}
           gistID: 46d409f23d2b17672adfa2dfe9b6b1f0
