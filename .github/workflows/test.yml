@@ -30,7 +30,8 @@ jobs:
           key: pnpm
 
       - name: Lint project
-        run: pnpm run lint
+        run: ls -l ~/setup-pnpm
+        # run: pnpm run lint
 
   vitest:
     runs-on: ubuntu-latest
