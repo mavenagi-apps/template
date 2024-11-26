@@ -22,3 +22,13 @@ jobs:
 
       - name: Test project
         run: pnpm run test:coverage
+
+      - name: Create badge
+        uses: schneegans/dynamic-badges-action@v1
+        with:
+          auth: ${{ secrets.GIST_SECRET }}
+          gistID: 46d409f23d2b17672adfa2dfe9b6b1f0
+          filename: coverage.svg
+          label: test
+          message: badge
+          color: lightgrey
