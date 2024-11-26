@@ -13,7 +13,7 @@
     "prepare": "husky",
     "start": "next start",
     "test": "vitest run",
-    "test:coverage": "vitest run --coverage",
+    "test:coverage": "vitest run --coverage.enabled --coverage.reporter='text-summary'",
     "test:watch": "vitest"
   },
   "config": {

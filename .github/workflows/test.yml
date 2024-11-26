@@ -20,12 +20,12 @@ jobs:
       - name: Lint project
         run: pnpm run lint
 
-      - name: Test project
-        run: pnpm run test:coverage
+      # - name: Test project
+      #   run: pnpm run test:coverage
 
       - name: Coverage
         run: |
-          SUMMARY="$(npm run test-ci | tail -2 | head -1)"
+          SUMMARY="$(npm run test:coverage | tail -2 | head -1)"
           TOKENS=($SUMMARY)
           echo "COVERAGE=$(echo ${TOKENS[2]})" >> $GITHUB_ENV
 
