@@ -36,5 +36,5 @@ jobs:
           gistID: 46d409f23d2b17672adfa2dfe9b6b1f0
           filename: coverage.svg
           label: coverage
-          message: badge
+          message: ${{ env.COVERAGE }}
           color: lightgrey
