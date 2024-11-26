@@ -31,20 +31,21 @@ jobs:
           node-version-file: '.nvmrc'
 
       - name: Lint project
-        run: ls -l ~/setup-pnpm
-        # run: pnpm run lint
+        run: pnpm run lint
 
   vitest:
     runs-on: ubuntu-latest
     needs:
       - setup
+      - lint
     steps:
-      - name: Restore cache
-        uses: actions/cache/restore@v4
-        id: cache
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: ./.github/actions/setup
         with:
-          path: ~/pnpm
-          key: pnpm
+          node-version-file: '.nvmrc'
 
       - name: Run vitest
         run: pnpm run test:vitest
@@ -65,8 +66,16 @@ jobs:
       - setup
       - lint
       - vitest
-      # - playwright
+      - playwright
     steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: ./.github/actions/setup
+        with:
+          node-version-file: '.nvmrc'
+
       - name: Gather test coverage
         run: |
           SUMMARY="$(npm run test:coverage | tail -2 | head -1)"
