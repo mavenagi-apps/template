@@ -126,9 +126,6 @@ importers:
       vitest:
         specifier: ^2.1.5
         version: 2.1.5(@types/node@22.9.1)(jsdom@25.0.1)(msw@2.6.5(@types/node@22.9.1)(typescript@5.6.3))
-      wait-on:
-        specifier: ^8.0.1
-        version: 8.0.1(debug@4.3.7)
 
 packages:
 
