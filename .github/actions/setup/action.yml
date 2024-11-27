@@ -17,10 +17,6 @@ runs:
         standalone: true
         dest: ~/setup-pnpm
 
-    - name: Find pnpm
-      shell: bash
-      run: which pnpm
-
     - name: Set up Node.js
       uses: actions/setup-node@v3
       with:
