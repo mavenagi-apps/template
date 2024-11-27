@@ -6,17 +6,6 @@ on:
       - develop
 
 jobs:
-  setup:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-
-      - name: Setup Node.js
-        uses: ./.github/actions/setup
-        with:
-          node-version-file: '.nvmrc'
-
   lint:
     runs-on: ubuntu-latest
     needs:
@@ -56,6 +45,14 @@ jobs:
       - setup
       - lint
     steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: ./.github/actions/setup
+        with:
+          node-version-file: '.nvmrc'
+
       - name: Build
         run: pnpm build
 
