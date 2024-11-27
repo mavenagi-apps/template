@@ -62,11 +62,8 @@ jobs:
       - name: Build
         run: pnpm build
 
-      - name: Run
-        run: pnpm start
-
-      - name: Build
-        run: pnpm run test:playwright
+      - name: Test
+        run: pnpm run test:playwright:ci
 
   coverage:
     runs-on: ubuntu-latest

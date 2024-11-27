@@ -15,6 +15,7 @@
     "test": "pnpm test:vitest && pnpm test:playwright",
     "test:coverage": "pnpm test:coverage:vitest",
     "test:playwright": "playwright test",
+    "test:playwright:ci": "start-server-and-test start http://localhost:3000 test:playwright",
     "test:vitest": "vitest run",
     "test:vitest:coverage": "vitest run --coverage.enabled --coverage.reporter='text-summary'"
   },
@@ -59,6 +60,7 @@
     "postcss": "^8.4.49",
     "prettier": "^3.3.3",
     "prettier-package-json": "^2.8.0",
+    "start-server-and-test": "^2.0.8",
     "tailwind-merge": "^2.5.4",
     "tailwindcss": "^3.4.15",
     "tailwindcss-animate": "^1.0.7",
