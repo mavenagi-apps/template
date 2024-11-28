@@ -1,0 +1,19 @@
+#!/bin/bash
+
+BRANCH="$(git rev-parse --abbrev-ref HEAD)"
+if [[ "$BRANCH" != "main" ]]; then
+  echo 'This script should only be run from the main branch.';
+  exit 1;
+fi
+
+# switch to main
+git checkout main
+git pull --rebase
+
+# delete the existing release tag
+git push origin :refs/tags/release
+git tag -d release
+
+# create and push a new release tag
+git tag -f release
+git push origin --tags
