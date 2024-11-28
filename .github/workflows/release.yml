@@ -35,4 +35,4 @@ jobs:
           unset GITHUB_ACTIONS
           unset GITHUB_EVENT_NAME
 
-          pnpm semantic-release --dry-run --no-ci --branches $GITHUB_HEAD_REF
+          pnpm semantic-release --dry-run --no-ci --branches develop
