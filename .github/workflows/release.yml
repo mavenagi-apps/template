@@ -3,7 +3,7 @@ name: release
 on:
   push:
     branches:
-      - develop
+      - wip-versioning
 
 jobs:
   start:
@@ -12,7 +12,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
         with:
-          ref: develop
+          ref: wip-versioning
           # token: ${{ secrets.GH_TOKEN }}
 
       - name: Configure git identity
@@ -28,11 +28,28 @@ jobs:
         with:
           node-version-file: '.nvmrc'
 
-      - name: Generate release notes
-        id: release-notes-preview
+      - name: Get current version
+        id: current_version
         run: |
-          # Trick semantic-release into thinking we're not in a CI environment
-          unset GITHUB_ACTIONS
-          unset GITHUB_EVENT_NAME
+          VERSION=$(jq -r '.version' package.json)
+          echo "current_version=$VERSION" >> $GITHUB_OUTPUT
 
-          pnpm semantic-release --dry-run --no-ci --branches develop
+      - name: Get next version
+        id: next_version
+        run: |
+          NEXT_VERSION=$(npx semantic-release --dry-run --no-ci | grep "The next release version is" | awk '{print $NF}')
+          echo "next_version=$NEXT_VERSION" >> $GITHUB_OUTPUT
+
+      - name: Output Versions
+        run: |
+          echo "Current version : ${{ steps.current_version.outputs.current_version }}"
+          echo "Next version    : ${{ steps.next_version.outputs.next_version }}"
+
+      # - name: Generate release notes
+      #   id: release-notes-preview
+      #   run: |
+      #     # Trick semantic-release into thinking we're not in a CI environment
+      #     unset GITHUB_ACTIONS
+      #     unset GITHUB_EVENT_NAME
+
+      #     pnpm semantic-release --dry-run --no-ci --branches develop
