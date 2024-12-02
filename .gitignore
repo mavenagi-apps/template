@@ -12,6 +12,7 @@
 
 # testing
 /coverage
+/.playwright
 
 # next.js
 /.next/
@@ -40,3 +41,10 @@ yarn-error.log*
 next-env.d.ts
 
 .idea
+node_modules/
+/test-results/
+/playwright-report/
+/blob-report/
+/playwright/.cache/
+
+*storybook.log

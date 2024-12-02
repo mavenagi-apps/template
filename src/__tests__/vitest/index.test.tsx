@@ -4,7 +4,7 @@ import { Knowledge } from 'mavenagi/api/resources/knowledge/client/Client';
 import { SetupServerApi, setupServer } from 'msw/node';
 import { afterAll, afterEach, beforeAll, describe, expect, it, vi } from 'vitest';
 
-import hooks from '../index';
+import hooks from '../../index';
 import { SAMPLE_ACTION_MOCK, SAMPLE_GET_KNOWLEDGE_MOCK } from './fixtures/fixtures';
 
 const { preInstall, postInstall } = hooks;

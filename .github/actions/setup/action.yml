@@ -10,15 +10,19 @@ runs:
   using: 'composite'
 
   steps:
+    - name: Set up pnpm
+      uses: pnpm/action-setup@v4
+      with:
+        run_install: false
+        standalone: true
+        dest: ~/setup-pnpm
+
     - name: Set up Node.js
       uses: actions/setup-node@v3
       with:
         node-version-file: ${{ inputs.node-version-file }}
-
-    - name: Install pnpm
-      uses: pnpm/action-setup@v4
-      with:
-        version: 9
+        cache: 'pnpm'
+        cache-dependency-path: pnpm-lock.yaml
 
     - name: Install dependencies using pnpm
       shell: bash
@@ -27,3 +31,10 @@ runs:
     - name: Install Vercel CLI
       shell: bash
       run: pnpm install --global vercel@latest
+
+    # - name: Cache
+    #   uses: actions/cache/save@v4
+    #   id: cache
+    # with:
+    #   path: ~/setup-pnpm
+    #   key: pnpm

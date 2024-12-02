@@ -1,0 +1,38 @@
+name: wip-release
+
+on:
+  push:
+    branches:
+      - develop
+
+jobs:
+  start:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          ref: develop
+          # token: ${{ secrets.GH_TOKEN }}
+
+      - name: Configure git identity
+        run: |
+          git config --global user.name "Maven Engineering"
+          git config --global user.email "eng@mavenagi.com"
+
+      - name: Fetch tags
+        run: git fetch --prune --unshallow --tags --force
+
+      - name: Setup node
+        uses: ./.github/actions/setup
+        with:
+          node-version-file: '.nvmrc'
+
+      - name: Generate release notes
+        id: release-notes-preview
+        run: |
+          # Trick semantic-release into thinking we're not in a CI environment
+          unset GITHUB_ACTIONS
+          unset GITHUB_EVENT_NAME
+
+          pnpm semantic-release --dry-run --no-ci --branches develop
