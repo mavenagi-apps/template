@@ -1,4 +1,4 @@
-name: release
+name: wip-release
 
 on:
   push:
