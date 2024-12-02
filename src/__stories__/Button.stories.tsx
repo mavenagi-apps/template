@@ -1,5 +1,4 @@
-import type { Meta, StoryObj } from '@storybook/react';
-import { expect, userEvent, within } from '@storybook/test';
+import type { Meta } from '@storybook/react';
 
 import Button from '../components/Button';
 
@@ -13,4 +12,4 @@ const meta = {
 
 export default meta;
 
-export const defaultButton = () => <Button text="default" href="localhost" />;
+export const DefaultButton = () => <Button text="default" href="localhost" />;
