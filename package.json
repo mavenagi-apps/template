@@ -62,7 +62,7 @@
     "eslint": "^9.15.0",
     "eslint-config-next": "^15.0.3",
     "eslint-config-prettier": "^9.1.0",
-    "eslint-plugin-i18next": "^6.1.0",
+    "eslint-plugin-i18next": "^6.1.1",
     "eslint-plugin-storybook": "^0.11.1",
     "eslint-plugin-tailwindcss": "^3.17.5",
     "git-cz": "^4.9.0",
