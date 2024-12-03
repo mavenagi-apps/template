@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       mavenagi:
-        specifier: 0.0.0-alpha.29
-        version: 0.0.0-alpha.29
+        specifier: 1.0.2
+        version: 1.0.2
       next:
         specifier: ^15.0.3
         version: 15.0.3(@babel/core@7.26.0)(@playwright/test@1.49.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -4327,8 +4327,8 @@ packages:
     engines: {node: '>= 18'}
     hasBin: true
 
-  mavenagi@0.0.0-alpha.29:
-    resolution: {integrity: sha512-7RWgpebdfBR1OIGX0iK2PS/WJcFeVvQH/x9rTPyDYUzjaEXi4X1gKpK7+esVCX6J1E7+ies69VSbkxsoMWZn6w==}
+  mavenagi@1.0.2:
+    resolution: {integrity: sha512-gsZlZuN3t51+n/wCdmTbXUkzkhmC5iRdNyG2tfcNW/TT7yb4Dz+HDS1PYxIpsmCCoxEND6aiweh9NYBq0ta7VA==}
 
   md5.js@1.3.5:
     resolution: {integrity: sha512-xitP+WxNPcTTOgnTJcrhM0xvdPepipPSf3I8EIpGKeFLjt3PlJLIDG3u8EX53ZIubkb+5U2+3rELYpEhHhzdkg==}
@@ -11243,7 +11243,7 @@ snapshots:
 
   marked@12.0.2: {}
 
-  mavenagi@0.0.0-alpha.29:
+  mavenagi@1.0.2:
     dependencies:
       form-data: 4.0.1
       formdata-node: 6.0.3
