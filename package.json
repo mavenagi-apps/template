@@ -83,8 +83,8 @@
     "vitest": "^2.1.5"
   },
   "engines": {
-    "node": "23.3.0",
-    "pnpm": "9.2.0"
+    "node": "^23.1.0",
+    "pnpm": "^9.1.0"
   },
   "lint-staged": {
     "src/**/*.ts": "prettier --config .prettierrc --write",
