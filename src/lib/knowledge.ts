@@ -1,7 +1,7 @@
 import { MavenAGI, MavenAGIClient } from 'mavenagi';
 
-const SAMPLE_KNOWLEDGEBASE_NAME = 'sample-knowledge';
-const SAMPLE_KNOWLEDGE_ID = 'sample-knowledge';
+export const SAMPLE_KNOWLEDGEBASE_NAME = 'sample-knowledge';
+export const SAMPLE_KNOWLEDGE_ID = 'sample-knowledge';
 
 export const upsertSampleKnowledge = async (
   client: MavenAGIClient,
