@@ -18,7 +18,7 @@
     "test:coverage": "pnpm test:coverage:vitest",
     "test:playwright": "playwright test",
     "test:playwright:ci": "start-server-and-test start http://localhost:3000 test:playwright",
-    "test:record": "NEVE_RECORD=true npm run test:recorded",
+    "test:record": "NEVE_RECORD=true pnpm run test:recorded",
     "test:recorded": "vitest --config vitest.recorded.config.js run",
     "test:vitest": "vitest run",
     "test:vitest:coverage": "vitest run --coverage.enabled --coverage.reporter='text-summary'"
