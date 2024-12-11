@@ -19,12 +19,14 @@ export default {
   async preInstall({
     organizationId,
     agentId,
+    settings,
   }: {
     organizationId: string;
     agentId: string;
     settings: AppSettings;
   }) {
     console.info('preInstall', { organizationId, agentId });
+    console.info('preInstall appSettings', settings);
   },
 
   /**
@@ -33,12 +35,14 @@ export default {
   async postInstall({
     organizationId,
     agentId,
+    settings,
   }: {
     organizationId: string;
     agentId: string;
     settings: AppSettings;
   }) {
     console.info('postInstall', { organizationId, agentId });
+    console.info('postInstall appSettings', settings);
 
     const client = new MavenAGIClient({
       organizationId: organizationId,
