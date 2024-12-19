@@ -3,7 +3,14 @@ name: test
 on:
   push:
     branches:
-      - develop
+      - main
+  pull_request:
+    branches:
+      - main
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
 
 jobs:
   start:
@@ -31,7 +38,7 @@ jobs:
           node-version-file: '.nvmrc'
 
       - name: Lint project
-        run: pnpm run lint
+        run: pnpm lint
 
   vitest:
     runs-on: ubuntu-latest
@@ -91,7 +98,7 @@ jobs:
 
       - name: Gather test coverage
         run: |
-          SUMMARY="$(npm run test:coverage | tail -2 | head -1)"
+          SUMMARY="$(pnpm test:coverage | tail -2 | head -1)"
           TOKENS=($SUMMARY)
           echo "COVERAGE=$(echo ${TOKENS[2]})" >> $GITHUB_ENV
 
