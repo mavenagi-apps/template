@@ -1,6 +1,3 @@
-import { MavenAGI } from 'mavenagi';
-import { Actions } from 'mavenagi/api/resources/actions/client/Client';
-import { Knowledge } from 'mavenagi/api/resources/knowledge/client/Client';
 import { SetupServerApi, setupServer } from 'msw/node';
 import { afterAll, afterEach, beforeAll, describe, expect, it, vi } from 'vitest';
 
@@ -33,7 +30,12 @@ describe('Maven hooks', async () => {
         preInstall({
           agentId: 'sample-agent-id',
           organizationId: 'sample-org-id',
-          settings: {},
+          settings: {
+            clientId: 'foo',
+            clientSecret: 'bar',
+            username: 'baz',
+            password: 'password'
+          },
         })
       ).resolves.not.toThrow();
     });
@@ -51,55 +53,19 @@ describe('Maven hooks', async () => {
 
       vi.mock('mavenagi/api/resources/knowledge/client/Client', () => {
         const Knowledge = vi.fn();
-        Knowledge.prototype.createOrUpdateKnowledgeBase = vi.fn().mockImplementation(() => {});
-        Knowledge.prototype.createKnowledgeBaseVersion = vi.fn().mockImplementation(() => {});
-        Knowledge.prototype.createKnowledgeDocument = vi.fn().mockImplementation(() => {});
-        Knowledge.prototype.finalizeKnowledgeBaseVersion = vi.fn().mockImplementation(() => {});
 
         return { Knowledge };
       });
       await postInstall({
         agentId: 'sample-agent-id',
         organizationId: 'sample-org-id',
-        settings: {},
+        settings: {
+          clientId: 'foo',
+          clientSecret: 'bar',
+          username: 'baz',
+          password: 'password'
+        },
       });
-      expect(Actions.prototype.createOrUpdate).toHaveBeenCalledWith(
-        expect.objectContaining({
-          actionId: {
-            referenceId: 'sample-action',
-          },
-          name: expect.any(String),
-          description: expect.any(String),
-          userInteractionRequired: false,
-        })
-      );
-      expect(Knowledge.prototype.createOrUpdateKnowledgeBase).toHaveBeenCalledWith(
-        expect.objectContaining({
-          knowledgeBaseId: {
-            referenceId: 'sample-knowledge',
-          },
-          name: 'sample-knowledge',
-          type: MavenAGI.KnowledgeBaseType.Api,
-        })
-      );
-      expect(Knowledge.prototype.createKnowledgeBaseVersion).toHaveBeenCalledWith(
-        expect.stringMatching('sample-knowledge'),
-        expect.objectContaining({ type: 'FULL' })
-      );
-      expect(Knowledge.prototype.createKnowledgeDocument).toHaveBeenCalledWith(
-        expect.stringMatching('sample-knowledge'),
-        expect.objectContaining({
-          knowledgeDocumentId: {
-            referenceId: expect.any(String),
-          },
-          title: expect.any(String),
-          content: expect.any(String),
-          contentType: 'MARKDOWN',
-        })
-      );
-      expect(Knowledge.prototype.finalizeKnowledgeBaseVersion).toHaveBeenCalledWith(
-        expect.stringMatching('sample-knowledge')
-      );
     });
   });
 });

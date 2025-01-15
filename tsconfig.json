@@ -23,9 +23,15 @@
       "@/*": ["./src/*"],
       "@app/*": ["./src/app/*"],
       "@lib/*": ["./src/lib/*"],
-      "@styles/*": ["./src/styles/*"],
+      "@styles/*": ["./src/styles/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts",
+    "node_modules/.pnpm/vitest@2.1.5_@types+node@22.10.1_jsdom@25.0.1_msw@2.6.6_@types+node@22.10.1_typescript@5.7.2__terser@5.36.0/node_modules/vitest/globals.d.ts"
+  ],
   "exclude": ["node_modules"]
 }

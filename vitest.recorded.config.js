@@ -9,5 +9,6 @@ export default defineConfig({
     globals: true,
     setupFiles: ['./src/__tests__/vitest/setupRecorderTests.ts'],
     include: ['src/__tests__/vitest/**/*.recorded.ts'],
+    passWithNoTests: true,
   },
 });

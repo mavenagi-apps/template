@@ -1,67 +1,81 @@
+import axios from 'axios';
+import jsforce, { Connection } from 'jsforce';
 import { MavenAGI, MavenAGIClient } from 'mavenagi';
 
-export const SAMPLE_KNOWLEDGEBASE_NAME = 'sample-knowledge';
-export const SAMPLE_KNOWLEDGE_ID = 'sample-knowledge';
+const apiVersion = '52.0';
 
-export const upsertSampleKnowledge = async (
-  client: MavenAGIClient,
-  {
-    title,
-    content,
-    slug,
-  }: {
-    title: string;
-    content: string;
-    slug: string;
+interface KnowledgeArticles {
+  articles: KnowledgeArticle[];
+  nextRecordsUrl: string;
+}
+
+interface KnowledgeArticle {
+  id: string;
+  title: string;
+  summary: string;
+  body: string;
+  urlName: string;
+}
+
+export async function fetchPages(conn: Connection) {
+  let endpoint = `/services/data/${apiVersion}/support/knowledgeArticles`;
+  let allArticles: KnowledgeArticle[] = [];
+  while (endpoint) {
+    const response: KnowledgeArticles = await conn.request(endpoint);
+    allArticles = allArticles.concat(response.articles);
+    endpoint = response.nextRecordsUrl;
   }
-) => {
-  try {
-    await client.knowledge.createOrUpdateKnowledgeBase({
-      name: SAMPLE_KNOWLEDGEBASE_NAME,
-      type: MavenAGI.KnowledgeBaseType.Api,
-      knowledgeBaseId: { referenceId: SAMPLE_KNOWLEDGE_ID },
-    });
 
-    await client.knowledge.createKnowledgeBaseVersion(SAMPLE_KNOWLEDGE_ID, {
-      type: 'FULL',
-    });
+  return allArticles;
+}
 
-    await client.knowledge.createKnowledgeDocument(SAMPLE_KNOWLEDGE_ID, {
-      title,
-      content,
-      contentType: 'MARKDOWN',
-      knowledgeDocumentId: { referenceId: slug },
-    });
+export async function fetchArticle(conn: Connection, articleId: string) {
+  const endpoint = `/services/data/${apiVersion}/support/knowledgeArticles/${articleId}`;
+  return conn.request(endpoint);
+}
 
-    await client.knowledge.finalizeKnowledgeBaseVersion(SAMPLE_KNOWLEDGE_ID);
-  } catch (error) {
-    console.error('Error creating knowledge base', error);
-    throw error;
-  }
-};
+export async function getAccessToken(clientId: string, clientSecret: string): Promise<string> {
+  const response = await axios.post('https://login.salesforce.com/services/oauth2/token', null, {
+    params: {
+      grant_type: 'client_credentials',
+      client_id: clientId,
+      client_secret: clientSecret,
+    },
+  });
+  return response.data.access_token;
+}
 
-export const refreshSampleKnowledge = async (
-  client: MavenAGIClient,
-  {
-    title,
-    content,
-    slug,
-  }: {
-    title: string;
-    content: string;
-    slug: string;
-  }
-) => {
-  await client.knowledge.createKnowledgeBaseVersion(SAMPLE_KNOWLEDGE_ID, {
-    type: 'FULL',
+export async function syncData(settings: AppSettings, organizationId: string, agentId: string) {
+  const client = new MavenAGIClient({
+    organizationId: organizationId,
+    agentId: agentId,
   });
 
-  await client.knowledge.createKnowledgeDocument(SAMPLE_KNOWLEDGE_ID, {
-    title,
-    content,
-    contentType: 'MARKDOWN',
-    knowledgeDocumentId: { referenceId: slug },
+  const oAuth2 = new jsforce.OAuth2({
+    loginUrl: 'https://login.salesforce.com',
+    clientId: settings.clientId,
+    clientSecret: settings.clientSecret,
   });
 
-  await client.knowledge.finalizeKnowledgeBaseVersion(SAMPLE_KNOWLEDGE_ID);
-};
+  const conn = new jsforce.Connection({ oauth2: oAuth2 });
+
+  await conn.login(settings.username, settings.password);
+
+  const articles = await fetchPages(conn);
+
+  await Promise.all(
+    articles.map(async (article) => {
+      const articleData: KnowledgeArticle = (await fetchArticle(
+        conn,
+        article.id
+      )) as KnowledgeArticle;
+      await client.knowledge.createKnowledgeDocument('salesforce', {
+        knowledgeDocumentId: { referenceId: articleData.id },
+        title: articleData.title,
+        content: article.body,
+        contentType: MavenAGI.KnowledgeDocumentContentType.Html,
+        url: articleData.urlName,
+      });
+    })
+  );
+}
